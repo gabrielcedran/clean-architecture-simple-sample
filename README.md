@@ -17,3 +17,15 @@ so that coupling is reduced and flexibility increased. This design can be seen i
 
 ![Image of Yaktocat](https://github.com/gabrielcedran/clean-architecture-simple-sample/blob/master/diagram.png) 
 
+The application layer cannot explicitly instantiate or reference anything from the Persistence and Infrastructure modules. 
+It's not possible even on purpose, preventing unwary mistakes and violation of DIP and the architecture design.
+
+### Command Query Responsibility Segregation
+The primary reason to segregate Commands from Queries is that they should optimized to perform their operations. In general,
+commands should execute behaviors in the domain model in order to mutate state, raise events and write data to the database,
+while queries should use whatever is most suitable to retrieve data, project into a format for presentation and display to the user.
+
+In other words, Commands should read as high level instructions working with entities in the domain model to modify state and save changes
+while query should bypass model and query the database directly but whatever means it the most appropriate way to display the necessary data.
+
+CQRS can have three different levels of implementation: single-database, database segregation and event sourcing.

@@ -12,6 +12,7 @@ import br.com.cedran.persistence.repositories.sales.SalesRepository;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -50,7 +51,17 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
+    public Sale obtainSaleById(UUID id) {
+        return this.salesRepository.getOne(id);
+    }
+
+    @Override
     public Sale saveSale(Sale sale) {
         return this.salesRepository.save(sale);
+    }
+
+    @Override
+    public List<Sale> getAllSales() {
+        return this.salesRepository.findAll();
     }
 }
