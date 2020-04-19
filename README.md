@@ -29,3 +29,30 @@ In other words, Commands should read as high level instructions working with ent
 while query should bypass model and query the database directly but whatever means it the most appropriate way to display the necessary data.
 
 CQRS can have three different levels of implementation: single-database, database segregation and event sourcing.
+
+
+### Project Organization
+"The architecture should scream the intent of the system" Robert C. Martin
+When organizing the structure of a project, facilitating the understand of the readers should be taken into consideration.
+The classical structuring by components (or categories) although widely and commonly used does not convey the intention of the 
+project clearly. Suppose the two following sets of root modules/packages for the same project, just organized differently:
+By components (typical MVC structure):
+- Content
+- Controllers
+- Models
+- Scripts
+- Views
+
+By use cases/domains:
+- Customers
+- Employees
+- Products
+- Sales
+- Vendors
+  
+While the first example is very hard to determine the intent of the software, the second is easier.
+The functional cohesion provided by the second is generally more efficient than categorical cohesion, because it better models
+the way the system is maintained, navigated and reason about software.
+It is like keeping together your silverware forks your the pitch forks and tuning fork, just because they are forks.
+Functional cohesion is like keeping your forks next to your spoons and knives, because these three utensils are usually used together.   
+
